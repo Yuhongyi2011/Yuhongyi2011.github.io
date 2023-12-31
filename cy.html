@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="in_user">
+    <button onclick="login()">login</button>
+    <script>
+        function login(){
+            rduser=document.getElementById("in_user").value;
+            obj=fetch('./user.json')
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+            console.log(obj);
+            var key
+            for(key in obj){
+                if (key==rduser){
+                    var ivalue=obj[key];
+                    console.log(ivalue)
+                    console.log("yes")
+                }
+                else{
+                    console.log("no")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
